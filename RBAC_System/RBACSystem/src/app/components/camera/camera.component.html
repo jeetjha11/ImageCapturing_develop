@@ -1,0 +1,31 @@
+<div>
+    <!-- Button to check webcam permissions -->
+    <button (click)="checkpermissions()">Check The Webcam Permissions</button>
+    
+    <!-- Display the status of the webcam permission check -->
+    <p *ngIf="Status">{{Status}}</p>
+  </div>
+  
+  <div *ngIf="stream" class="container">
+    <!-- Webcam component to capture images -->
+    <webcam [trigger]="$trigger" (imageCapture)="snapshot($event)"></webcam>
+  
+    <!-- Button to capture an image -->
+    <button class="m-2" (click)="captureImage()">Let's Capture The Image</button>
+    <!-- The button to stop the camera recording -->
+<button class="m-2" (click)="stopCamera()">Stop Camera</button>
+
+  </div>
+  <!-- preview Image 
+    -->
+    <div *ngIf="previewImage">
+        <img [src]="previewImage" height="250" width="250" alt="Image Preview">
+      </div>
+
+<!-- Save button to send the image to the API -->
+<button *ngIf="previewImage" class="m-2" (click)="saveImage()">Save</button>
+<!-- The button to cancel the image recording -->
+<button *ngIf="previewImage" class="m-2" (click)="cancelImage()">Cancel</button>
+
+
+      

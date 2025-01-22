@@ -1,0 +1,50 @@
+<div class="admin-portal">
+    <div class="text-center">
+
+        <h1>Welcome To The Admin Portal</h1>
+    </div>
+  <app-camera></app-camera>
+    <!-- Add User Section -->
+    <div class="add-user">
+      <h2>Add User</h2>
+      <label for="username">Username</label>
+      <input id="username" [(ngModel)]="newUser.username" type="text" placeholder="Enter username">
+  
+      <label for="email">Email</label>
+      <input id="email" [(ngModel)]="newUser.email" type="email" placeholder="Enter email">
+  
+      <label for="password">Password</label>
+      <input id="password" [(ngModel)]="newUser.password" type="password" placeholder="Enter password">
+  
+      <label for="role">Role</label>
+      <select id="role" [(ngModel)]="newUser.role">
+        <option value="" disabled selected>Select a role</option>
+        <option value="admin">Admin</option>
+        <option value="manager">Manager</option>
+        <option value="user">Employee</option>
+      </select>
+    
+      
+      <button class="m-3 btn btn-primary btn-secondary btn-success btn-danger btn-warning btn-info btn-light btn-dark btn-link btn-outline-primary btn-outline-secondary btn-outline-success btn-outline-danger btn-outline-warning btn-outline-info btn-outline-light btn-outline-dark btn-sm btn-lg btn-block" (click)="addUser()">Add</button>
+    </div>
+  
+    <!-- Show Users Section -->
+    <div class="show-users">
+      <h2>Show Users</h2>
+      <table *ngIf="users.length > 0">
+        <tr>
+          <th>Username</th>
+          <th>Email</th>
+          <th>Role</th>
+        </tr>
+        <tr *ngFor="let user of users">
+          <td>{{ user.username }}</td>
+          <td>{{ user.email }}</td>
+          <td>{{ user.role }}</td>
+        </tr>
+      </table>
+  
+      <p *ngIf="users.length === 0">No users to display</p>
+    </div>
+  </div>
+  

@@ -1,0 +1,29 @@
+/* Custom style for the login button */
+.btn-custom {
+    display: inline-block;
+ 
+    width: 100px;
+    background-color: #007bff; /* Bootstrap's primary blue color */
+    color: #fff; /* White text */
+    font-size: 16px; /* Adjust font size */
+    padding: 12px 30px; /* Spacious padding for the button */
+    border-radius: 50px; /* Rounded corners for a sleek look */
+    text-align: center; /* Center the text inside the button */
+    text-decoration: none; /* Remove underline from the link */
+    box-shadow: 0 4px 8px rgba(58, 46, 46, 0.1); /* Light shadow for a 3D effect */
+    transition: all 0.3s ease; /* Smooth transition effect on hover */
+}
+
+/* Hover effect */
+.btn-custom:hover {
+    background-color: #0056b3; /* Darker blue when hovered */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Increased shadow on hover */
+    transform: translateY(-2px); /* Slight lift effect */
+    text-decoration: none; /* Ensures no underline on hover */
+}
+
+/* Focus effect for accessibility */
+.btn-custom:focus {
+    outline: none;
+    box-shadow: 0 0 5px 3px rgba(0, 123, 255, 0.5); /* Focused outline with a glow effect */
+}

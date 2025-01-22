@@ -1,0 +1,22 @@
+<app-camera></app-camera>
+<div class="xxxxx">
+<div class="user-portal">
+  <!-- Displaying user profile details -->
+  <h1>Welcome, {{ user.username }}!</h1>
+  <p>Email: {{ user.email }}</p>
+
+  <div class="profile">
+    <h2>Profile Picture</h2>
+
+    <!-- Display the profile photo if it exists -->
+    <div class="profile-picture">
+      <img *ngIf="user.photo" [src]="'http://localhost:5000/' + user.photo" alt="Profile Picture" />
+      <div *ngIf="!user.photo">No Profile Picture</div>
+    </div>
+
+    <!-- File selection form -->
+    <input type="file" (change)="onFileSelect($event)" />
+    <button (click)="uploadPhoto()">Upload Photo</button>
+  </div>
+</div>
+

@@ -1,0 +1,95 @@
+<form [formGroup]="form" (ngSubmit)="submit()">
+  <div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="card shadow-lg p-4">
+          <h1 class="text-center mb-4 text-color-blue">Please Register Here</h1>
+
+          <!-- Name Input -->
+          <div class="mb-3">
+            <label for="name" class="form-label">Name</label>
+            <input 
+              id="name" 
+              formControlName="username" 
+              type="text" 
+              class="form-control" 
+              placeholder="Enter name"
+              [ngClass]="{'invalid-field': form.controls['username'].invalid && form.controls['username'].touched}">
+            <div *ngIf="form.controls['username'].invalid && form.controls['username'].touched" class="invalid-message">
+              Name is required.
+            </div>
+          </div>
+
+          <!-- Email Input -->
+          <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input 
+              id="email" 
+              formControlName="email" 
+              type="email" 
+              class="form-control" 
+              placeholder="Enter email"
+              [ngClass]="{'invalid-field': form.controls['email'].invalid && form.controls['email'].touched}">
+            <div *ngIf="form.controls['email'].invalid && form.controls['email'].touched" class="invalid-message">
+              <div *ngIf="form.controls['email'].errors?.['required']">Email is required.</div>
+              <div *ngIf="form.controls['email'].errors?.['email']">Enter a valid email address.</div>
+            </div>
+          </div>
+
+          <!-- Password Input -->
+          <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input 
+              id="password" 
+              formControlName="password" 
+              type="password" 
+              class="form-control" 
+              placeholder="Enter password"
+              [ngClass]="{'invalid-field': form.controls['password'].invalid && form.controls['password'].touched}">
+            <div *ngIf="form.controls['password'].invalid && form.controls['password'].touched" class="invalid-message">
+              Password is required.
+            </div>
+          </div>
+
+          <!-- Confirm Password Input -->
+          <div class="mb-3">
+            <label for="confirmPassword" class="form-label">Confirm Password</label>
+            <input 
+              id="confirmPassword" 
+              formControlName="confirmPassword" 
+              type="password" 
+              class="form-control" 
+              placeholder="Enter password"
+              [ngClass]="{'invalid-field': form.controls['confirmPassword'].invalid && form.controls['confirmPassword'].touched}">
+            <div *ngIf="form.controls['confirmPassword'].invalid && form.controls['confirmPassword'].touched" class="invalid-message">
+              Confirm Password is required.
+            </div>
+            <div *ngIf="form.errors?.['passwordMismatch']" class="invalid-message">
+              Passwords do not match.
+            </div>
+          </div>
+
+          <!-- Role Input -->
+          <div class="mb-3">
+            <label for="role" class="form-label">Role</label>
+            <select id="role" formControlName="role" class="form-select">
+              <option value="admin">Admin</option>
+              <option value="manager">Manager</option>
+              <option value="user">Employee</option>
+            </select>
+          </div>
+
+          <!-- Submit Button -->
+          <div class="d-grid">
+            <button type="submit" class="btn btn-primary" [disabled]="form.invalid">Register</button>
+          </div>
+
+          <!-- Alternative Login -->
+          <div class="text-center">
+            <p class="mb-2">If Already Registered?<a routerLink="/login"> Login Here</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
